@@ -1,10 +1,14 @@
 import React from "react";
+import Navbar from "../../layouts/frontend/Navbar.js";
 
 function Home(){
     return (
-        <h1>
+        <div>
+            <Navbar />
+            <h1>
             I am a home page
         </h1>
+        </div>
     );
 }
 
