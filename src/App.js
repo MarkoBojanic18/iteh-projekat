@@ -6,7 +6,13 @@ import Home from './components/frontend/Home';
 import Login from './components/frontend/auth/Login';
 import Register from './components/frontend/auth/Register';
 
+import axios from "axios";
 
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.headers.post['Content-Type']='application/json';
+axios.defaults.headers.post['Accept'] = 'application/json';
 
 function App() {
   return (
