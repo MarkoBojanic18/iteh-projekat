@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Redirect,Route,Switch} from 'react-router-dom';
 import Home from './components/frontend/Home';
 import Login from './components/frontend/auth/Login';
 import Register from './components/frontend/auth/Register';
+import AdminPrivateRoute from './AdminPrivateRoute';
 
 import axios from "axios";
 
@@ -38,7 +39,8 @@ function App() {
           </Route>
 
 
-           <Route path='/admin' name="Admin" render={(props) => <MasterLayout {...props}/>} /> 
+           {/* <Route path='/admin' name="Admin" render={(props) => <MasterLayout {...props}/>} />  */}
+           <AdminPrivateRoute path='/admin' name="Admin" />
         
         
 
