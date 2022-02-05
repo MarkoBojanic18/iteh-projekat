@@ -1,0 +1,134 @@
+.footerHome {
+  background-color: #333;
+  color: gray;
+  height: 400px;
+  position: relative;
+  margin-top: 100px;
+  font-family: "Roboto";
+}
+
+.footerHome .footerHome-content {
+  height: 350px;
+  display: flex;
+}
+
+.footerHome .footerHome-content .footerHome-section {
+  flex: 1;
+  padding: 25px;
+}
+
+.footerHome .footerHome-content h1,
+h2 {
+  color: white;
+  padding-bottom: 5px;
+}
+
+.footerHome .footerHome-content .about h1 span {
+  color: red;
+}
+
+.footerHome .footerHome-content .about p {
+  padding-left: 20px;
+  text-align: justify;
+  color: gray;
+  font-size: 18px;
+}
+
+.footerHome .footerHome-content .about .contact span {
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  margin-left: 20px;
+}
+
+.footerHome .footerHome-content .about .socials a {
+  border: 1px solid gray;
+  width: 45px;
+  height: 41px;
+  padding-top: 5px;
+  margin-right: 5px;
+  text-align: center;
+  display: inline-block;
+  font-size: 1.3em;
+  border-radius: 5px;
+  color: gray;
+  transition: all 0.3s;
+}
+
+.footerHome .footerHome-content .about .socials a:hover {
+  border: 1px solid white;
+  color: white;
+  transition: all 0.3s;
+}
+
+.footerHome .footerHome-content .links ul a {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  transition: all 0.3s;
+  color: gray;
+}
+
+.footerHome .footerHome-content .links ul a:hover {
+  color: white;
+  padding-left: 15px;
+  transition: all 0.3s;
+}
+
+.footerHome .footerHome-content .contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerHome .footerHome-content .contact-form .contact-input {
+  background: #272727;
+  color: #bebdbd;
+  margin-bottom: 10px;
+  line-height: 1.5rem;
+  padding: 0.7rem 1.2rem;
+  resize: none;
+  border: none;
+}
+
+.footerHome .footerHome-content .contact-form .contact-input:focus {
+  background: #1a1a1a;
+}
+
+.footerHome .footerHome-content .contact-form form .btn-big {
+  width: 100px;
+  height: 50px;
+  background-color: turquoise;
+  border-radius: 7px;
+}
+
+.footerHome .footerHome-bottom {
+  background: #343a40;
+  color: #686868;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  left: 0px;
+  padding-top: 20px;
+  position: absolute;
+  bottom: 0px;
+  top: 100%;
+}
+
+@media only screen and (max-width: 934px) {
+  .footerHome {
+    height: auto;
+  }
+
+  .footerHome .footerHome-content {
+    height: auto;
+    flex-direction: column;
+  }
+
+  .footerHome .footerHome-content .contact-form {
+    padding-bottom: 90px;
+  }
+
+  .footerHome .footerHome-content .contact-form form .btn-big {
+    width: 100%;
+  }
+}

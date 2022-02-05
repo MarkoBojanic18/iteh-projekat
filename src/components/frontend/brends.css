@@ -1,0 +1,28 @@
+.brends {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  width: 90%;
+  margin-left: 80px;
+}
+
+.brends img {
+  max-width: 100px;
+  max-height: 50px;
+  transform-origin: center;
+  transform: perspective(800px) rotateY(20deg);
+  transition: 0.5s;
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, transparent, #0004);
+}
+
+.brends:hover img {
+  opacity: 0.1;
+}
+
+.brends img:hover {
+  transform: perspective(100px) rotateY(20deg);
+  opacity: 1;
+}

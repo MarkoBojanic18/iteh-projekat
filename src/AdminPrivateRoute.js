@@ -34,6 +34,26 @@ function AdminPrivateRoute({...rest}){
         return Promise.reject(err);
     });
 
+
+    axios.interceptors.response.use(function(response){
+        return response;
+    }, function(error){
+        if(error.response.status === 403) // ovo znaci da je odbijen pristup pirlikom pokusaja usera da pristupi admin/dashboard
+        {
+            swal("Forbidden",error.response.data.message,"warning");
+            history.push('/403');
+        }
+        else if(error.response.status === 404) // znaci da stranica nije pronadjena
+        {
+            swal("404 Error","Url/Page not found","warning");
+            history.push('/404');
+        }
+
+        return Promise.reject(error);
+    });
+
+
+
     if(loading){
         return <h1>Loading...</h1>
     }
