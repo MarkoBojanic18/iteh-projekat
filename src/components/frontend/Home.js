@@ -6,6 +6,7 @@ import Brends from "./Brends.js";
 import News from "./news.js";
 import FooterHome from "./FooterHome.js";
 import Discount from "./Discount.js";
+import CardsForCategories from "./CardsForCategories.js";
 
 function Home() {
   return (
@@ -16,7 +17,7 @@ function Home() {
       <News />
       <Discount />
       <LabelUnderCoverImage />
-
+      <CardsForCategories />
       <FooterHome />
     </div>
   );

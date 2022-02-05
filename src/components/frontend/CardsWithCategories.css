@@ -1,0 +1,89 @@
+.contain {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+  margin-top: 120px;
+}
+.firstRow {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-flow: wrap;
+  text-align: center;
+  color: black;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+
+.firstRow img {
+  height: 300px;
+  width: 530px;
+  margin: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.firstRow img:hover {
+  opacity: 0.5;
+  transition: 1s;
+  color: black;
+  transform: scale(1.02);
+}
+
+.firstRow p {
+  color: black;
+  margin-left: 20px;
+  font-size: 35px;
+  font-family: sans-serif;
+  margin-bottom: -10px;
+}
+
+.firstRow #button {
+  display: flex;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.secondRow {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-flow: wrap;
+}
+
+.secondRow img {
+  height: 250px;
+  width: 350px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.secondRow img:hover {
+  opacity: 0.5;
+  transition: 1s;
+  color: black;
+  transform: scale(1.05);
+}
+
+.secondRow #button {
+  display: flex;
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.secondRow p {
+  color: black;
+  margin-left: 75px;
+  font-size: 35px;
+  font-family: sans-serif;
+  margin-bottom: -10px;
+}
