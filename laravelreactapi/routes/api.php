@@ -13,7 +13,8 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
     Route::get('/checkingAuthenticated', function(){
         return response()->json(['message'=>'You are in','status'=>200],200);
     });
-
+    //Category
+    Route::get('view-category', [CategoryController::class,'index']);
     Route::post('store-category',[CategoryController::class,'store']);
 
 });
