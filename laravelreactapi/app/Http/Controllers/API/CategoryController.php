@@ -10,12 +10,36 @@ use Illuminate\Support\Facades\Validator;
 class CategoryController extends Controller
 {
 
+
+
+
     public function index(){
         $category = Category::all();
         return response()->json([
             'status' =>200,
             'category' =>$category,
         ]);
+    }
+
+
+
+    public function edit($id){
+
+        $category = Category::find($id);
+
+        if($category){
+
+            return response()->json([
+                'status'=>200,
+                'category' =>$category,
+            ]);
+        }
+        else{
+              return response()->json([
+                'status'=>404,
+                'message' =>'No Category ID Found',
+            ]);
+        }
     }
 
 

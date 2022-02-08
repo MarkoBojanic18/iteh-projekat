@@ -23,10 +23,10 @@ function ViewCategory() {
     viewcategory_HTMLTABLE = categorylist.map((item) => {
       return (
         <tr key={item.id}>
-          <td>item.id</td>
-          <td>item.name</td>
-          <td>item.slug</td>
-          <td>item.status</td>
+          <td>{item.id}</td>
+          <td>{item.name}</td>
+          <td>{item.slug}</td>
+          <td>{item.status}</td>
           <td>
             <Link
               to={`edit-category/${item.id}`}
