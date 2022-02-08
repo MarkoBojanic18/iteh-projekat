@@ -72,16 +72,48 @@ class CategoryController extends Controller
                 'message'=>'Category added successfully'
             ]);
         }
-
-
-
-      
-
-
-
-
-
-        
-
     }
+
+
+     public function update(Request $request, $id){
+        
+        $validator = Validator::make($request->all(),[
+            'meta_title'=>'required|max:191',
+            'slug'=>'required|max:191',
+            'name'=>'required|max:191',
+        ]);
+        if($validator->fails())
+        {
+            return response()->json([
+                'status'=>422,
+                'errors'=>$validator->messages(),
+            ]);
+        }
+        else{
+            $category = Category::find($id);
+            if($category){
+            
+            $category->meta_title = $request->input('meta_title');
+            $category->meta_keyword = $request->input('meta_keyword');
+            $category->meta_descrip = $request->input('meta_descrip');
+            $category->slug = $request->input('slug');
+            $category->name = $request->input('name');
+            $category->description = $request->input('description');
+            $category->status = $request->input('status') == true ? '1':'0';
+            $category->save();
+            return response()->json([
+                'status'=>200,
+                'message'=>'Category added successfully'
+            ]);
+            }
+            else{
+                return response()->json([
+                'status'=>404,
+                'message'=>'No Category ID found',
+            ]);
+            }
+            
+        }
+    }
+
 }

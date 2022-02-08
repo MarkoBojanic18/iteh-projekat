@@ -1,13 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { Link, useHistory } from "react-router-dom";
 import swal from "sweetalert";
 
 function EditCategory(props) {
   const history = useHistory();
   const [loading, setLoading] = useState(true);
   const [categoryInput, setCategory] = useState([]);
+  const [error, setError] = useState([]);
 
   useEffect(() => {
     const category_id = props.match.params.id;
@@ -27,6 +27,25 @@ function EditCategory(props) {
     setCategory({ ...categoryInput, [e.target.name]: e.target.value });
   };
 
+  const updateCategory = (e) => {
+    e.preventDefault();
+
+    const category_id = props.match.params.id;
+    const data = categoryInput;
+    axios.put(`/api/update-category/${category_id}`, data).then((res) => {
+      if (res.data.status === 200) {
+        swal("Success", res.data.message, "success");
+        setError([]);
+      } else if (res.data.status === 422) {
+        swal("All fields are mandatory", "", "error");
+        setError(res.data.errors);
+      } else if (res.data.errors === 404) {
+        swal("Error", res.data.message, "error");
+        history.push("admin/view-category");
+      }
+    });
+  };
+
   if (loading) {
     return <h4>Loading Edit Category...</h4>;
   }
@@ -44,7 +63,7 @@ function EditCategory(props) {
           </Link>
         </h1>
 
-        <form>
+        <form onSubmit={updateCategory}>
           <ul className="nav nav-tabs" id="myTab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
@@ -91,6 +110,7 @@ function EditCategory(props) {
                   value={categoryInput.slug}
                   className="form-control"
                 />
+                <small className="text-danger">{error.slug}</small>
               </div>
 
               <div className="form-group mb-3">
@@ -102,6 +122,7 @@ function EditCategory(props) {
                   value={categoryInput.name}
                   className="form-control"
                 />
+                <small className="text-danger">{error.name}</small>
               </div>
 
               <div className="form-group mb-3">
@@ -140,6 +161,7 @@ function EditCategory(props) {
                   value={categoryInput.meta_title}
                   className="form-control"
                 />
+                <small className="text-danger">{error.meta_title}</small>
               </div>
 
               <div className="form-group mb-3">
