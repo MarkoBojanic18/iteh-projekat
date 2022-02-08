@@ -103,16 +103,34 @@ class CategoryController extends Controller
             $category->save();
             return response()->json([
                 'status'=>200,
-                'message'=>'Category added successfully'
+                'message'=>'Category Updated Successfully'
             ]);
             }
             else{
                 return response()->json([
                 'status'=>404,
-                'message'=>'No Category ID found',
+                'message'=>'No Category ID Found',
             ]);
             }
             
+        }
+    }
+
+    public function destroy($id){
+        $category = Category::find($id);
+        if($category){
+
+            $category->delete();
+             return response()->json([
+                'status'=>200,
+                'message'=>'Category Deleted Successfully'
+            ]);
+        }
+        else{
+            return response()->json([
+                'status'=>404,
+                'message'=>'No Category ID Found',
+            ]);
         }
     }
 
