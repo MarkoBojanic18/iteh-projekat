@@ -8,7 +8,7 @@ function AddProduct() {
 
 
 
-    const [categorylist, setCategorylist] = useState([]);
+    const [categorylist, setCategorylist] = useState([]);                            // !!!! OVDE pogledaj za category
     const [productInput, setProduct] = useState({
         category_id: '',
         slug: '',
