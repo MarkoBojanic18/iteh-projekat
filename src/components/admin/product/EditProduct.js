@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import swal from 'sweetalert';
 
 
-function AddProduct() {
+function EditProduct(props) {
 
 
 
@@ -50,6 +50,17 @@ function AddProduct() {
       setCategorylist(res.data.category);
       }
 });
+
+    const product_id = props.match.params.id;
+    axios.get(`/api/edit-product/${product_id}`).then(res=>{
+
+        if(res.data.status === 200)
+        {
+        console.log(res.data.product);
+        }
+    });
+   
+
 
     }, []);
 
@@ -112,7 +123,7 @@ function AddProduct() {
         <div className="container-fluid px-4">
          <div className='card mt-4'>
             <div className='card-header'>
-                <h4>Add Product
+                <h4>Edit Product
                     <Link to = "/admin/view-product" className = "btn btn-primary btn-sm float-end">View Product</Link>
                 </h4>
             </div>
@@ -239,4 +250,4 @@ function AddProduct() {
     )
 }
 
-export default AddProduct;
+export default EditProduct;

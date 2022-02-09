@@ -22,11 +22,6 @@ class ProductController extends Controller
     }
 
 
-
-
-
-
-
     public function store(Request $request){
 
     
@@ -88,7 +83,27 @@ class ProductController extends Controller
             ]);
         }
 
-        $product = new Product;
+        $product = new Product;     //kod njega ovo NE STOJI!
+    }
+
+
+    public function edit($id){
+
+        $product = Product::find($id);
+        if($product)
+        {
+                return response()->json([
+                'status'=>200,
+                'product'=>$product,
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'status'=>404,
+                'message'=>'No Product Found',
+            ]);
+        }
     }
 }
 
