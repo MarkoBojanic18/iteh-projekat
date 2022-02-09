@@ -28,13 +28,11 @@ const Sidebar = () => {
 
 
 
-
-
           <Link
             className="nav-link collapsed"
             to="#"
             data-bs-toggle="collapse"
-            data-bs-target="collapseProduct"
+            data-bs-target="#collapseProduct"
             aria-expanded="false"
             aria-controls="collapseProduct"
           >
@@ -61,8 +59,6 @@ const Sidebar = () => {
               </Link>
             </nav>
           </div>
-
-
 
 
 
