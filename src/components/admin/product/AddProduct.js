@@ -137,7 +137,8 @@ function AddProduct() {
 
                     <div className='form-group mb-3'>
                         <label>Select Category</label>
-                        <select name="categoty_id" onChange={handleInput} value={productInput.categoty_id} className='form-control'>
+                        <select name="category_id" onChange={handleInput} value={productInput.category_id} className='form-control'>
+                            <option>Select Category</option> 
                             {
                             categorylist.map( (item) =>{
                                 return(
@@ -146,6 +147,7 @@ function AddProduct() {
 
                             })
                             }
+                           
                             
                         </select>
                         <small className='text-danger'>{errorlist.category_id}</small>

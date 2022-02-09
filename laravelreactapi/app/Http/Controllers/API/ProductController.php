@@ -9,8 +9,27 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
+
+
+
+    public function index() 
+    {
+        $products = Product::all();
+        return response()->json([
+            'status' => 200,
+            'products' =>$products
+        ]);
+    }
+
+
+
+
+
+
+
     public function store(Request $request){
 
+    
 
         $validator = Validator::make($request->all(), [
             'category_id'=>'required|max:191',

@@ -21,12 +21,13 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
     Route::put('update-category/{id}',[CategoryController::class,'update']);
     Route::delete('delete-category/{id}',[CategoryController::class,'destroy']);
     Route::get('all-category',[CategoryController::class,'allcategory']);
+    
 
 
 
     //Products
     Route::post('store-product', [ProductController::class, 'store']);
-
+    Route::get('view-product',[ProductController::class,'index']);
 
 });
 
