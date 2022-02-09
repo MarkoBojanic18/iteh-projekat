@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import swal from 'sweetalert';
 
 
 function EditProduct(props) {
 
-
-
+    const history = useHistory();
+    
     const [categorylist, setCategorylist] = useState([]);                            
     const [productInput, setProduct] = useState({
         category_id: '',
@@ -31,6 +32,9 @@ function EditProduct(props) {
 
     const [picture, setPicture] = useState([]);
     const [errorlist,  setError] = useState([]);
+    const [loading,  setLoading] = useState(true);
+
+    
    
     
     const handleInput = (e) => {
@@ -56,16 +60,25 @@ function EditProduct(props) {
 
         if(res.data.status === 200)
         {
-        console.log(res.data.product);
+       // console.log(res.data.product);
+        setProduct(res.data.product);
         }
+        else if(res.data.status === 404)
+        {
+            swal("Error", res.data.message, "error");
+            history.push('/admin/view-product');
+        }
+        setLoading(false);
     });
    
 
 
-    }, []);
+    }, [props.match.params.id, history]);
 
-    const submitProduct = (e) => {
+    const updateProduct = (e) => {
         e.preventDefault();
+
+         const product_id = props.match.params.id;
 
         const formData = new FormData();
         formData.append('image', picture.image);
@@ -85,39 +98,29 @@ function EditProduct(props) {
         formData.append('popular', productInput.popular);
         formData.append('status', productInput.status);
 
-        axios.post(`/api/store-product`, formData).then(res=>{
+        axios.post(`/api/update-product/${product_id}`, formData).then(res=>{
 
             if(res.data.status === 200){
                 swal("Success", res.data.message, "success");
-                setProduct({...productInput,
-        category_id: '',
-        slug: '',
-        name: '',
-        description: '',
-
-        meta_title: '',
-        meta_keyword: '',
-        meta_descrip: '',
-
-        selling_price: '',
-        original_price: '',
-        qty: '',
-        brand: '',
-        featured: '',
-        popular: '',
-        status: '',
-
-    });
+                
                 setError([]);
             }
             else if (res.data.status === 422){
                 swal("All Fields Are Mandatory" , "", "error");
                 setError(res.data.errors);
             }
+            else if (res.data.status === 404)
+            {
+                swal("Error",res.data.message, "error");
+                history.push('/admin/view-product');
+            }
         });
     }
     
-
+    if(loading)
+    {
+        return <h4>Edit Product Data Loading...</h4>
+    }
 
     return (
         <div className="container-fluid px-4">
@@ -129,7 +132,7 @@ function EditProduct(props) {
             </div>
             <div className='card-body'>
 
-                <form onSubmit={submitProduct} encType='multipart/form-data'>
+                <form onSubmit={updateProduct} encType='multipart/form-data'>
 
                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                     <li className="nav-item" role="presentation">
@@ -222,6 +225,7 @@ function EditProduct(props) {
                              <div className='col-md-8 form-group mb-3'>
                                 <label>Image</label>
                                 <input type="file" name = "image" onChange={handleImage} className='form-control'/>
+                                
                                 <small className='text-danger'>{errorlist.image}</small>
                             </div>
                              <div className='col-md-4 form-group mb-3'>
