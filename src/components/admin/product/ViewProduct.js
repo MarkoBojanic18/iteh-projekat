@@ -1,21 +1,50 @@
 import axios from 'axios';
-import React , {useEffect} from 'react';
+import React , {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 
 
 function ViewProduct()
 {
 
+const [loading, setLoading] = useState(true);
+const [viewProduct, setProduct] = useState([]);
+
     useEffect(() => {
       
         axios.get(`/api/view-product`).then(res=>{
-            if(res.data.staus === 200)
+            if(res.data.status === 200)
             {
-                console.log(res.data.products);
+               // console.log(res.data.products);
+               setProduct(res.data.products);
+               setLoading(false);
             }
         });
 
     }, []);
+
+    var display_Productdata ="";
+
+    if(loading)
+    {
+        return <h4>View Products Loading ...</h4>
+    }
+    else
+    {
+
+        display_Productdata = viewProduct.map( (item) => {
+            return(
+                <tr key ={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.category_id}</td>
+                    <td>{item.name}</td>
+                    <td>{item.selling_price}</td>
+                    <td><img src={`http://localhost:8000/${item.image}`} width="80px" alt ={item.name}/></td>
+                    <td><Link to="edit-product" className='btn btn-success btn-sm'>Edit</Link></td>
+                    <td><button type ="button" className='btn btn-danger btn-sm'>Delete</button></td>
+                </tr>
+            ) 
+        });
+    }
     
 
     return(
@@ -33,7 +62,6 @@ function ViewProduct()
                             <tr>
                                 <th>ID</th>
                                 <th>Category Name</th>
-                                <th>Name</th>
                                 <th>Product Name</th>
                                 <th>Selling Price</th>
                                 <th>Image</th>
@@ -42,7 +70,7 @@ function ViewProduct()
                             </tr>
                         </thead>
                         <tbody>
-
+                            {display_Productdata}
                         </tbody>
 
                     </table>
@@ -51,9 +79,7 @@ function ViewProduct()
             </div>
         </div>
     )
-        
-    
-
 }
 
 export default ViewProduct;
+
