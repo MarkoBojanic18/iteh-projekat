@@ -11,6 +11,8 @@ const [viewProduct, setProduct] = useState([]);
 
     useEffect(() => {
       
+        document.title = "View Product";
+
         axios.get(`/api/view-product`).then(res=>{
             if(res.data.status === 200)
             {
@@ -35,7 +37,7 @@ const [viewProduct, setProduct] = useState([]);
             return(
                 <tr key ={item.id}>
                     <td>{item.id}</td>
-                    <td>{item.category_id}</td>
+                    <td>{item.category.name}</td>
                     <td>{item.name}</td>
                     <td>{item.selling_price}</td>
                     <td><img src={`http://localhost:8000/${item.image}`} width="80px" alt ={item.name}/></td>
