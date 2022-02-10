@@ -81,12 +81,7 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Collection
-              </Link>
-            </li>
-            <li className="nav-item">
+             <li className="nav-item">
               <Link className="nav-link" to="/faq">
                 FAQ
               </Link>
@@ -96,6 +91,12 @@ function Navbar() {
                 Contact
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="#">
+                Collection
+              </Link>
+            </li>
+           
             {AuthButtons}
           </ul>
         </div>
