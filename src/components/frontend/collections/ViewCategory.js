@@ -37,6 +37,7 @@ function ViewCategory()
                 <img src="" className="w-100" alt={item.name}/>
                 </Link>
 
+
                 <div className='card-body'>
                     <Link to={`collections/${item.slug}`}>
                     <h5>{item.name}</h5>
