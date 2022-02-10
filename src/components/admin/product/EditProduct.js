@@ -24,9 +24,6 @@ function EditProduct(props) {
         original_price: '',
         qty: '',
         brand: '',
-        featured: '',
-        popular: '',
-        status: '',
 
     });
 
@@ -46,6 +43,14 @@ function EditProduct(props) {
         setPicture({ image:e.target.files[0]});
     }
 
+    const  [allcheckbox, setCheckboxes] = useState([]);
+    const handleCheckbox = (e) => {
+        e.persist();
+        setCheckboxes({...allcheckbox, [e.target.name]:e.target.checked});
+    }
+
+
+
 
     useEffect(() => {
       
@@ -62,6 +67,7 @@ function EditProduct(props) {
         {
        // console.log(res.data.product);
         setProduct(res.data.product);
+        setCheckboxes(res.data.product);
         }
         else if(res.data.status === 404)
         {
@@ -94,15 +100,15 @@ function EditProduct(props) {
         formData.append('original_price', productInput.original_price);
         formData.append('qty', productInput.qty);
         formData.append('brand', productInput.brand);
-        formData.append('featured', productInput.featured);
-        formData.append('popular', productInput.popular);
-        formData.append('status', productInput.status);
+        formData.append('featured', allcheckbox.featured ? '1':'0');
+        formData.append('popular', allcheckbox.popular ? '1':'0');
+        formData.append('status', allcheckbox.status ? '1':'0');
 
         axios.post(`/api/update-product/${product_id}`, formData).then(res=>{
 
             if(res.data.status === 200){
                 swal("Success", res.data.message, "success");
-                
+                console.log(allcheckbox);
                 setError([]);
             }
             else if (res.data.status === 422){
@@ -230,15 +236,15 @@ function EditProduct(props) {
                             </div>
                              <div className='col-md-4 form-group mb-3'>
                                 <label>Featured (checked=shown) </label>
-                                <input type="checkbox" name = "featured" onChange={handleInput} value={productInput.featured} className='w-50 h-50' />
+                                <input type="checkbox" name = "featured" onChange={handleCheckbox} defaultChecked={allcheckbox.featured === 1 ? true:false} className='w-50 h-50' />
                             </div>
                              <div className='col-md-4 form-group mb-3'>
                                 <label>Popular (checked=shown) </label>
-                                <input type="checkbox" name = "popular" onChange={handleInput} value={productInput.popular} className='w-50 h-50' />
+                                <input type="checkbox" name = "popular" onChange={handleCheckbox} defaultChecked={allcheckbox.popular === 1 ? true:false} className='w-50 h-50' />
                             </div>
                             <div className='col-md-4 form-group mb-3'>
                                 <label>Status (checked=Hidden) </label>
-                                <input type="checkbox" name = "status" onChange={handleInput} value={productInput.status} className='w-50 h-50' />
+                                <input type="checkbox" name = "status" onChange={handleCheckbox} defaultChecked={allcheckbox.status === 1 ? true:false} className='w-50 h-50' />
                             </div>
 
 
