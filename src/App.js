@@ -15,6 +15,7 @@ import Page403 from "./components/errors/Page403";
 import Page404 from "./components/errors/Page404";
 import Faq from "./components/frontend/faqComplete.js";
 import Contact from "./components/frontend/ContactComplete";
+import PublicRoute from './PublicRoute.js';
 
 import axios from "axios";
 
@@ -33,15 +34,21 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path="/" component={Home} />
+          
 
           <Route path="/403" component={Page403} />
           <Route path="/404" component={Page404} />
-          <Route path="/faq" component={Faq} />
-          <Route path="/contact" component={Contact} />
+          {/* <Route exact path="/" component={Home} /> */}
+          {/* <Route path="/faq" component={Faq} />
+          <Route path="/contact" component={Contact} /> */}
 
           {/* <Route   path='/login' component={Login}/>
           <Route   path='/register' component={Register}/> */}
+
+          <AdminPrivateRoute path="/admin" name="Admin" />
+
+
+          <PublicRoute path="/" name="Home" />
 
           <Route path="/login">
             {localStorage.getItem("auth_token") ? (
@@ -60,7 +67,7 @@ function App() {
           </Route>
 
           {/* <Route path='/admin' name="Admin" render={(props) => <MasterLayout {...props}/>} />  */}
-          <AdminPrivateRoute path="/admin" name="Admin" />
+      
         </Switch>
       </Router>
     </div>

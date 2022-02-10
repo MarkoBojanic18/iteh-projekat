@@ -11,7 +11,7 @@ import CardsForCategories from "./CardsForCategories.js";
 function Home() {
   return (
     <div>
-      <Navbar />
+      
       <Slider />
       <Brends />
       <News />
