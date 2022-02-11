@@ -91,6 +91,7 @@ function EditProduct(props) {
         formData.append('category_id', productInput.category_id);
         formData.append('slug', productInput.slug);
         formData.append('name', productInput.name);
+        formData.append('description', productInput.description);
 
         formData.append('meta_title', productInput.meta_title);
         formData.append('meta_keyword', productInput.meta_keyword);
@@ -231,7 +232,7 @@ function EditProduct(props) {
                              <div className='col-md-8 form-group mb-3'>
                                 <label>Image</label>
                                 <input type="file" name = "image" onChange={handleImage} className='form-control'/>
-                                
+                                <img src={`http://localhost:8000/${productInput.image}`} width='50px' />
                                 <small className='text-danger'>{errorlist.image}</small>
                             </div>
                              <div className='col-md-4 form-group mb-3'>

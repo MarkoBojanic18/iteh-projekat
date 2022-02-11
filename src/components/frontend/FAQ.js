@@ -18,8 +18,8 @@ const Faq = () => {
           <div className="accordionFaq-item" id="que1">
             <a className="accordionFaq-link" href="#que1">
               How can I get a free delivery on SportLine?
-              <i class="fas fa-plus" id="plus"></i>
-              <i class="fas fa-minus" id="minus"></i>
+              <i className="fas fa-plus" id="plus"></i>
+              <i className="fas fa-minus" id="minus"></i>
             </a>
             <div className="answer">
               <p>
@@ -35,8 +35,8 @@ const Faq = () => {
           <div className="accordionFaq-item" id="que2">
             <a className="accordionFaq-link" href="#que2">
               How will I know Sportline received my order?
-              <i class="fas fa-plus" id="plus"></i>
-              <i class="fas fa-minus" id="minus"></i>
+              <i className="fas fa-plus" id="plus"></i>
+              <i className="fas fa-minus" id="minus"></i>
             </a>
             <div className="answer">
               <p>
@@ -52,8 +52,8 @@ const Faq = () => {
           <div className="accordionFaq-item" id="que3">
             <a className="accordionFaq-link" href="#que3">
               What is the status of my refund?
-              <i class="fas fa-plus" id="plus"></i>
-              <i class="fas fa-minus" id="minus"></i>
+              <i className="fas fa-plus" id="plus"></i>
+              <i className="fas fa-minus" id="minus"></i>
             </a>
             <div className="answer">
               <p>
@@ -70,8 +70,8 @@ const Faq = () => {
           <div className="accordionFaq-item" id="que4">
             <a className="accordionFaq-link" href="#que4">
               How can I check the delivery status on my order?
-              <i class="fas fa-plus" id="plus"></i>
-              <i class="fas fa-minus" id="minus"></i>
+              <i className="fas fa-plus" id="plus"></i>
+              <i className="fas fa-minus" id="minus"></i>
             </a>
             <div className="answer">
               <p>
@@ -86,8 +86,8 @@ const Faq = () => {
           <div className="accordionFaq-item" id="que5">
             <a className="accordionFaq-link" href="#que5">
               Refund something that is over 30 days old?
-              <i class="fas fa-plus" id="plus"></i>
-              <i class="fas fa-minus" id="minus"></i>
+              <i className="fas fa-plus" id="plus"></i>
+              <i className="fas fa-minus" id="minus"></i>
             </a>
             <div className="answer">
               <p>
@@ -101,8 +101,8 @@ const Faq = () => {
           <div className="accordionFaq-item" id="que6">
             <a className="accordionFaq-link" href="#que6">
               Can I exchange my purchase for something else?
-              <i class="fas fa-plus" id="plus"></i>
-              <i class="fas fa-minus" id="minus"></i>
+              <i className="fas fa-plus" id="plus"></i>
+              <i className="fas fa-minus" id="minus"></i>
             </a>
             <div className="answer">
               <p>
@@ -121,8 +121,8 @@ const Faq = () => {
           <div className="accordionFaq-item" id="que7">
             <a className="accordionFaq-link" href="#que7">
               When are promotional discounts applied?
-              <i class="fas fa-plus" id="plus"></i>
-              <i class="fas fa-minus" id="minus"></i>
+              <i className="fas fa-plus" id="plus"></i>
+              <i className="fas fa-minus" id="minus"></i>
             </a>
             <div className="answer">
               <p>
