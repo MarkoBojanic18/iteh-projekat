@@ -25,6 +25,7 @@ class FrontendController extends Controller
             $product = Product::where('category_id', $category->id)->where('status','0')->get();
             if($product)
             {
+                
                  return response()->json([
                  'status'=>200,
                  'product_data'=>[
@@ -38,7 +39,7 @@ class FrontendController extends Controller
                 return response()->json([
                 'status'=>400,
                 'message'=>'No product available'
-           ]);
+                 ]);
             }
         }
         else
