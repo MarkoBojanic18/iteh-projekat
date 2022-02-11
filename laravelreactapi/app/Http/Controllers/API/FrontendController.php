@@ -16,4 +16,37 @@ class FrontendController extends Controller
             'category'=>$category,
         ]);
     }
+
+    public function product($slug)
+    {
+        $category = Category::where('slug', $slug)->where('status','0')->first();
+        if($category)
+        {
+            $product = Product::where('category_id', $category->id)->where('status','0')->get();
+            if($product)
+            {
+                 return response()->json([
+                 'status'=>200,
+                 'product_data'=>[
+                     'product'=>$product,
+                     'category'=>$category,
+                 ]
+                 ]);
+            }
+            else
+            {
+                return response()->json([
+                'status'=>400,
+                'message'=>'No product available'
+           ]);
+            }
+        }
+        else
+        {
+            return response()->json([
+            'status'=>404,
+            'message'=>'No such category found'
+        ]);
+        }
+    }
 }

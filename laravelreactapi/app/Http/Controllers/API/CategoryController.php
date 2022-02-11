@@ -46,7 +46,7 @@ class CategoryController extends Controller
         else{
               return response()->json([
                 'status'=>404,
-                'message' =>'No Category ID Found',
+                'message' =>'No category ID found',
             ]);
         }
     }
