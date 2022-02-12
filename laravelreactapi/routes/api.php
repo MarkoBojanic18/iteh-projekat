@@ -16,6 +16,9 @@ Route::post('login',[AuthController::class, 'login']);
  Route::get('view-productFront',[ProductController::class,'indexFront']);
  Route::get('viewproductdetail/{category_slug}/{product_slug}', [FrontendController::class, 'viewproduct']);
 Route::post('add-to-cart', [CartController::class, 'addtocart']);
+Route::get('cart',[CartController::class, 'viewcart']);
+Route::put('cart-updatequantity-days/{cart_id}/{scope}',[CartController::class, 'updatequantityanddays']);
+Route::delete('delete-cartitem/{cart_id}',[CartController::class, 'deleteCartItem']);
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
 

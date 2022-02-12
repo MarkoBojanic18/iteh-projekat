@@ -16,4 +16,10 @@ class Cart extends Model
         'product_days',
     ];
 
+    protected $with = ['product'];
+    public function product()
+    {
+        return $this->belongsTo(Product::class,'product_id','id');
+    }
+
 }

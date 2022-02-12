@@ -63,11 +63,6 @@ const [viewProduct, setProduct] = useState([]);
         });
     }
 
-
-
-   
-    
-
     return(
 
         <div className='card px-4 mt-3'>

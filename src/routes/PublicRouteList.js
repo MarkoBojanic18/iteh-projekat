@@ -5,8 +5,7 @@ import Home from "../components/frontend/Home";
 import Collections from "../components/frontend/Collections.js";
 import ProductDetail from "../components/frontend/collections/ProductDetail.js";
 import Cart from "../components/frontend/Cart.js";
-
-
+import Checkout from "../components/frontend/Checkout.js";
 import Page403 from "../components/errors/Page403";
 import Page404 from "../components/errors/Page404";
 import Register from "../components/frontend/auth/Register.js";
@@ -36,7 +35,11 @@ const publicRoutesList = [
   { path: "/register", exact: true, name: "Register",component: Register },
   { path: "/collections", exact: true, name: "ViewCategory",component: ViewCategory },
   { path: "/collections/:category/:product", exact: true, name: "ProductDetail",component: ProductDetail },
-  { path: "/cart", exact: true, name: "Cart",component: Cart },
+  { path: "/cart", exact: true, name: "Cart", component: Cart },
+  { path: "/checkout", exact: true, name: "Checkout", component: Checkout },
+
+
+  
 
 
 
