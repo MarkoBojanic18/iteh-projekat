@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
+
 
 class FrontendController extends Controller
 {
@@ -17,36 +19,32 @@ class FrontendController extends Controller
         ]);
     }
 
-    public function product($slug)
+public function viewproduct($category_slug,$product_slug)
+{
+    $category = Category::where('slug',$category_slug)->where('status','0')->first();
+    if($category)
     {
-        $category = Category::where('slug', $slug)->where('status','0')->first();
-        if($category)
-        {
-            $product = Product::where('category_id', $category->id)->where('status','0')->get();
-            if($product)
-            {
-                 return response()->json([
-                 'status'=>200,
-                 'product_data'=>[
-                     'product'=>$product,
-                     'category'=>$category,
-                 ]
-                 ]);
-            }
-            else
-            {
-                return response()->json([
-                'status'=>400,
-                'message'=>'No product available'
-           ]);
-            }
-        }
-        else
+        $product = Product::where('category_id',$category->id)->where('slug',$product_slug)->where('status','0')->first();
+        if($product)
         {
             return response()->json([
-            'status'=>404,
-            'message'=>'No such category found'
-        ]);
+                'status'=>200,
+                'product'=>$product,
+                ]);
+        }
+        else{
+            return response()->json([
+                'status'=>400,
+                'message'=>'No product available'
+                ]);
         }
     }
+    else{
+        return response()->json([
+                'status'=>404,
+                'message'=>'No such category found'
+                ]);
+    }
+}
+
 }

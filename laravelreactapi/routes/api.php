@@ -6,13 +6,16 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\FrontendController;
+use App\Http\Controllers\API\CartController;
+
 
 Route::post('register',[AuthController::class, 'register']);
 Route::post('login',[AuthController::class, 'login']);
 
-Route::get('getCategory',[FrontendController::class, 'category']);
-Route::get('fetchproducts/{slug}', [FrontendController::class, 'product']);
-
+ Route::get('getCategoryCategory',[FrontendController::class, 'category']);
+ Route::get('view-productFront',[ProductController::class,'indexFront']);
+ Route::get('viewproductdetail/{category_slug}/{product_slug}', [FrontendController::class, 'viewproduct']);
+Route::post('add-to-cart', [CartController::class, 'addtocart']);
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
 

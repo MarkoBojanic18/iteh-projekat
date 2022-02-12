@@ -21,6 +21,15 @@ class ProductController extends Controller
         ]);
     }
 
+     public function indexFront() 
+    {
+        $products = Product::all();
+        return response()->json([
+            'status' => 200,
+            'products' =>$products
+        ]);
+    }
+
 
     public function store(Request $request){
 

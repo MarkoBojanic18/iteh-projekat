@@ -11,7 +11,7 @@ function EditCategory(props) {
 
   useEffect(() => {
     const category_id = props.match.params.id;
-    axios.get(`/api/edit-category/${category_id}`).then(res => {
+    axios.get(`/api/edit-category/${category_id}`).then((res) => {
       if (res.data.status === 200) {
         setCategory(res.data.category);
       } else if (res.data.status === 404) {
@@ -32,7 +32,7 @@ function EditCategory(props) {
 
     const category_id = props.match.params.id;
     const data = categoryInput;
-    axios.put(`/api/update-category/${category_id}`, data).then(res => {
+    axios.put(`/api/update-category/${category_id}`, data).then((res) => {
       if (res.data.status === 200) {
         swal("Success", res.data.message, "success");
         setError([]);
