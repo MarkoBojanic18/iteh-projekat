@@ -139,12 +139,10 @@ setCart(cart =>
                                 </tr>
                             </thead>
                             <tbody>
-                                {cart.map((item) =>{
+                                {cart.map((item,idx) =>{
                                     totalCartPrice += item.product.selling_price * item.product_qty*item.product_days;
                                     return (
-
-                                  
-                                <tr>
+                                <tr key={idx}>
                                     <td width="10%">
                                         <img src={`http://127.0.0.1:8000/${item.product.image}`} alt={item.product.name} width="150px" height="100px"/>
                                     </td>
