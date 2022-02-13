@@ -125,7 +125,8 @@ setCart(cart =>
     var cart_HTML='';
     if(cart.length>0)
     {
-        cart_HTML =  <div className="table-responsive">
+        cart_HTML =  <div>
+        <div className="table-responsive">
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
@@ -173,6 +174,20 @@ setCart(cart =>
                             </tbody>
                         </table>
                     </div>
+                    <div className="row">
+                        <div className="col-md-8">
+                    <div className="col-md-4">
+                        <div className="card card-body mt-3">
+                            <h4>Total:
+                                <span className="float-end">{totalCartPrice}</span>
+                            </h4>
+                            <hr />
+                            <Link to="/checkout" className="btn btn-primary">Checkout</Link>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+                    </div>
     }
 else{
   cart_HTML=  <div>
@@ -197,19 +212,7 @@ else{
                     {cart_HTML}
                 </div>
                 
-                <div className="col-md-8">
-                    <div className="col-md-4">
-                        <div className="card card-body mt-3">
-                            <h4>Total:
-                                <span className="float-end">{totalCartPrice}</span>
-                            </h4>
-                            <hr />
-                            <Link to="/checkout" className="btn btn-primary">Checkout</Link>
-
-                        </div>
-
-                    </div>
-                </div>
+                
 
 
                 </div>

@@ -91,12 +91,10 @@ function EditProduct(props) {
         formData.append('category_id', productInput.category_id);
         formData.append('slug', productInput.slug);
         formData.append('name', productInput.name);
-<<<<<<< HEAD
-formData.append('description', productInput.description);
-=======
         formData.append('description', productInput.description);
 
->>>>>>> refs/remotes/origin/master
+
+
         formData.append('meta_title', productInput.meta_title);
         formData.append('meta_keyword', productInput.meta_keyword);
         formData.append('meta_descrip', productInput.meta_descrip);

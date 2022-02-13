@@ -6,6 +6,10 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\CategoryController;
 use App\Http\Controllers\API\ProductController;
 use App\Http\Controllers\API\FrontendController;
+use App\Http\Controllers\API\CheckoutController;
+use App\Http\Controllers\API\OrderController;
+
+
 use App\Http\Controllers\API\CartController;
 
 
@@ -19,6 +23,8 @@ Route::post('add-to-cart', [CartController::class, 'addtocart']);
 Route::get('cart',[CartController::class, 'viewcart']);
 Route::put('cart-updatequantity-days/{cart_id}/{scope}',[CartController::class, 'updatequantityanddays']);
 Route::delete('delete-cartitem/{cart_id}',[CartController::class, 'deleteCartItem']);
+Route::post('validate-order',[CheckoutController::class, 'validateOrder']);
+Route::post('place-order',[CheckoutController::class, 'placeorder']);
 
 Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
 
@@ -34,6 +40,8 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
     Route::get('all-category',[CategoryController::class,'allcategory']);
     
 
+    //Orders
+    Route::get('admin/orders',[OrderController::class,'index']);
 
 
     //Products

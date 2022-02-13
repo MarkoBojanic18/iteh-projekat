@@ -15,7 +15,7 @@ function Home() {
       <Slider />
       <Brends />
       <News />
-      {/* <Discount /> */}
+      <Discount />
       <LabelUnderCoverImage />
       <CardsForCategories />
       <FooterHome />

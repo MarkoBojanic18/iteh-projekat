@@ -92,7 +92,7 @@ class ProductController extends Controller
             ]);
         }
 
-        $product = new Product;     //kod njega ovo NE STOJI!
+        $product = new Product;     
     }
 
 

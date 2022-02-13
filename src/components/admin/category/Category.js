@@ -8,7 +8,7 @@ function Category(){
      const [categoryInput,setCategory] = useState({
           slug:'',
           name:'',
-          descrip:'',
+          description:'',
           status:'',
           meta_title:'',
           meta_keyword:'',

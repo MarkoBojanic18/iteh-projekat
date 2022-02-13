@@ -27,12 +27,12 @@ public function viewproduct($category_slug,$product_slug)
         $product = Product::where('category_id',$category->id)->where('slug',$product_slug)->where('status','0')->first();
         if($product)
         {
-<<<<<<< HEAD
+
             return response()->json([
                 'status'=>200,
                 'product'=>$product,
                 ]);
-=======
+
             $product = Product::where('category_id', $category->id)->where('status','0')->get();
             if($product)
             {
@@ -52,7 +52,6 @@ public function viewproduct($category_slug,$product_slug)
                 'message'=>'No product available'
                  ]);
             }
->>>>>>> refs/remotes/origin/master
         }
         else{
             return response()->json([

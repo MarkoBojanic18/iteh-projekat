@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import axios from 'axios';
 import React , {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
@@ -94,16 +93,6 @@ const [viewProduct, setProduct] = useState([]);
             </div>
         </div>
     )
-=======
-import React from "react";
-
-function Collections() {
-  return (
-    <div>
-     <h1>Collections...</h1>
-    </div>
-  );
->>>>>>> refs/remotes/origin/master
 }
 
 export default Collections;
