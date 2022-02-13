@@ -42,7 +42,11 @@ class Kernel extends HttpKernel
         'api' => [
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+<<<<<<< HEAD
            
+=======
+            
+>>>>>>> refs/remotes/origin/master
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];

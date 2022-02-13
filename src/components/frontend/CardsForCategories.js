@@ -13,14 +13,14 @@ function CardsForCategories() {
   return (
     <div className="contain">
       <div className="firstRow">
-        <div class="category1">
+        <div className="category1">
           <p>Car rims</p>
           <img src={carRim} alt="" />
           <button className="btn btn-primary" id="button">
             Read more
           </button>
         </div>
-        <div class="category2">
+        <div className="category2">
           <p>Spoilers</p>
           <img src={spoiler} alt="" />
           <button className="btn btn-primary" id="button">
@@ -30,14 +30,14 @@ function CardsForCategories() {
       </div>
 
       <div className="secondRow">
-        <div class="category3">
+        <div className="category3">
           <p>Pak Treger</p>
           <img src={pakTreger} alt="" />
           <button className="btn btn-primary" id="button">
             Read more
           </button>
         </div>
-        <div class="category4">
+        <div className="category4">
           <p>Tires</p>
           <img src={tires} alt="" />
 
@@ -45,7 +45,7 @@ function CardsForCategories() {
             Read more
           </button>
         </div>
-        <div class="category5">
+        <div className="category5">
           <p>Steering wheel</p>
           <img src={steeringWheel} alt="" />
 

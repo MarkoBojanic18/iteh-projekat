@@ -40,9 +40,9 @@ function ViewProduct(props)
             }
         });
     
-      return () => {
-        isMounted = false;
-      }
+        return () => {
+        isMounted = false
+      };
     }, [props.match.params.slug, history]);
     
     if(loading)
