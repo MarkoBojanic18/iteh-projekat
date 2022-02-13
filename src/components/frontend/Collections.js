@@ -44,7 +44,7 @@ const [viewProduct, setProduct] = useState([]);
     );
   } else {
      AuthButtons = ( <td></td>);
-        swal( "Login to borrow your car","","warning")
+        swal( "Login to rent your car","","warning")
      
 
   }
